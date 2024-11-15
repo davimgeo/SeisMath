@@ -1,21 +1,24 @@
 #include "../include/imports.hpp"
 #include "../include/common.hpp"
+#include <iostream>
 
-vec1d<float> generateRicker(uint16_t Nt, float dt, uint16_t fmax) 
+vec1d<float> generateRicker(uint16_t Nt, float dt, float fmax) 
 {
     vec1d<float> wavelet(Nt);
+    for (size_t i = 0; i < Nt; i++) {
+      wavelet[i] = 0.0f; 
+    } 
+
     float t0 = 2.0f * M_PI / fmax;
 
     for (size_t i = 0; i < Nt; i++) {
         float t = i * dt - t0;
-        float arg = M_PI * fmax * t;
-        float expression = (1.0f - 2.0f * arg * arg) * exp(-arg * arg);
-        wavelet[i] = expression;
+        float arg = (M_PI * fmax * t) * (M_PI * fmax * t); 
+        wavelet[i] = (1.0f - 2.0f * arg) * std::exp(-arg);
     }
 
     return wavelet;
 }
-
 static float sinc(float x)
 {
     return sin(x) / x; 
