@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-nz = 160
-nx = 416
+nz = 509
+nx = 509
 
 model = np.fromfile("wavefield_result.bin", dtype=np.float32, count=nx*nz).reshape([nz, nx], order="C")
 

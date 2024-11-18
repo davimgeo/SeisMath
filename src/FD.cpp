@@ -2,6 +2,7 @@
 #include "../include/common.hpp"
 #include "../include/matrix.hpp"
 
+// ensure that the user only use float type
 static vec2d<float> get_laplacian_2D(const vec2d<float>& U, uint16_t Nx, uint16_t Nz, float dx, float dz) {
 
     vec2d<float> d2u_dx2(Nz, vec1d<float>(Nx, 0.0f));
@@ -38,10 +39,12 @@ vec2d<float> compute_2D(const vec1d<float>& property, uint16_t Nx, uint16_t Nz, 
 
         vec2d<float> laplacian_2D = get_laplacian_2D(Upre, Nx, Nz, dx, dz);
 
-        vec2d<float> model_squared_time_dt = scalarMat(dt * dt, multMat(model, model));
-        vec2d<float> u_expression = subMat(scalarMat(2.0f, Upre), Upas);
-        vec2d<float> laplacian_mult = multMat(laplacian_2D, model_squared_time_dt);
-        Ufut = addMat(laplacian_mult, u_expression);
+        for (size_t i = 0; i < Ufut.size(); i++) {
+          for (size_t j = 0; j < Ufut[0].size(); j++) {
+              Ufut[i][j] = laplacian_2D[i][j] * (dt * dt * model[i][j] * model[i][j]) +
+              2 * Upre[i][j] - Upas[i][j];
+          }
+        }
 
         Upas = Upre;
         Upre = Ufut;
@@ -49,3 +52,4 @@ vec2d<float> compute_2D(const vec1d<float>& property, uint16_t Nx, uint16_t Nz, 
 
     return Ufut;
 }
+
