@@ -7,3 +7,4 @@ SRC = main.cpp src/*.cpp
 run:
 	@$(CXX) $(SRC) $(CXXFLAGS) -o $(OUT) -lm
 	@./$(OUT)
+
