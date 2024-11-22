@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BINARY_HPP
+#define BINARY_HPP
 
 #include <fstream>
 #include <stdexcept>
@@ -83,3 +84,5 @@ vec1d<T> loadFlattened2dVec(size_t rows, size_t cols, const std::string &PATH) {
 
     return result;
 }
+
+#endif // !BINARY_HPP

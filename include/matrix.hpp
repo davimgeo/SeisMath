@@ -1,6 +1,7 @@
-#pragma once
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
 
-#include "imports.hpp"
+#include <iostream>
 #include "common.hpp"
 
 template <typename T>
@@ -59,3 +60,4 @@ vec2d<T> subMat(const vec2d<T>& A, const vec2d<T>& B) {
     return result;
 }
 
+#endif // !MATRIX_HPP

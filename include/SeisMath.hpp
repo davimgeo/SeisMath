@@ -1,7 +1,6 @@
 #ifndef SEISMATH_HPP
 #define SEISMATH_HPP
 
-#include "imports.hpp"
 #include "common.hpp"
 #include "matrix.hpp"
 #include "wavelet.hpp"
