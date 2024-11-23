@@ -4,6 +4,8 @@
 #include <iostream>
 #include "common.hpp"
 
+namespace seismath {
+
 template <typename T>
 vec2d<T> multMat(const vec2d<T>& A, const vec2d<T>& B) {
     size_t rows = A.size();
@@ -58,6 +60,7 @@ vec2d<T> subMat(const vec2d<T>& A, const vec2d<T>& B) {
         }
     }
     return result;
+}
 }
 
 #endif // !MATRIX_HPP

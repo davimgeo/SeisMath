@@ -6,5 +6,6 @@
 #include "wavelet.hpp"
 #include "binary.hpp"
 #include "static_binary.h"
+#include "utils.hpp"
 
 #endif // SEISMATH_HPP
