@@ -6,7 +6,7 @@
 namespace seismath {
 
     template <typename T>
-    T sinc(T x) {
+    static constexpr T sinc(T x) {
         if (x == T(0)) {
             return T(1);
         }

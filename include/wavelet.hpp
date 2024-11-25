@@ -1,5 +1,5 @@
-#ifndef WAVELET_TEST_HPP
-#define WAVELET_TEST_HPP
+#ifndef WAVELET_HPP
+#define WAVELET_HPP
 
 #include <cstdint>
 #include "common.hpp"
@@ -24,4 +24,4 @@ namespace seismath {
 };          
 }
 
-#endif // !WAVELET_TEST_HPP
+#endif // !WAVELET_HPP

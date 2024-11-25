@@ -11,8 +11,7 @@ int main (int argc, char *argv[]) {
 
     vec1d<float> ricker = waveletGenerator.generateRicker();
 
-    for (size_t i = 1; i < argc; ++i) {
-
+    for (int i = 1; i < argc; ++i) {
         if (strcmp(argv[i], "-p") == 0) {
             seismath::printPlot1D(ricker);
         }
