@@ -12,15 +12,19 @@ int main (int argc, char *argv[]) {
     vec1d<float> ricker = waveletGenerator.generateRicker();
     vec1d<float> orsmby = waveletGenerator.generateOrmsby();
 
-    for (int i = 1; i < argc; ++i) {
-        if (strcmp(argv[i], "-p") == 0) {
-            seismath::printPlot1D(ricker);
-        }
-    }
-
     seismath::calculateRuntime([&]() {
         auto result = seismath::add1DVec(ricker, orsmby);
     });
 
+    vec2d<int> arr = {{1, 2, 3},
+                      {4, 5, 6},
+                      {7, 8, 9}};
+
+    seismath::PlotParameters params;
+    params.title = "Ricker Wavelet";
+    params.xlabel = "Samples";
+    params.ylabel = "Amplitude";
+
+    seismath::plot1D(ricker, params);
     return 0;
 }

@@ -8,5 +8,6 @@
 #include "functions/static_binary.h"
 #include "functions/utils.hpp"
 #include "functions/runtime.hpp"
+#include "functions/plot.hpp"
 
 #endif // SEISMATH_HPP
