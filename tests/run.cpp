@@ -10,6 +10,7 @@ int main (int argc, char *argv[]) {
     seismath::Wavelets waveletGenerator(Nt, dt, fmax, freqs);
 
     vec1d<float> ricker = waveletGenerator.generateRicker();
+    vec1d<float> orsmby = waveletGenerator.generateOrmsby();
 
     for (int i = 1; i < argc; ++i) {
         if (strcmp(argv[i], "-p") == 0) {
@@ -17,7 +18,9 @@ int main (int argc, char *argv[]) {
         }
     }
 
-    seismath::print1D(ricker);
+    seismath::calculateRuntime([&]() {
+        auto result = seismath::add1DVec(ricker, orsmby);
+    });
 
     return 0;
 }

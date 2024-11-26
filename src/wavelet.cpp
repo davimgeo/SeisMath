@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <cmath>
-#include "../include/common.hpp"
-#include "../include/wavelet.hpp"
+#include "../include/functions/common.hpp"
+#include "../include/functions/wavelet.hpp"
 
 namespace seismath {
 
